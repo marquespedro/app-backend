@@ -4,8 +4,8 @@ import java.util.stream.Stream;
 
 public enum TipoSolicitacaoEnum {
 
-	CADASTRO_PESSOA_FISICA(1),
-	CADASTRO_PESSOA_JURIDICA(2);
+	CADASTRO_IMOVEL(1),
+	ALTERAR_PROPRIETARIO(2);
 
 	private Integer codigo;
 	
