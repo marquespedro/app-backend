@@ -7,8 +7,8 @@ import br.com.app.model.enumerator.TipoSolicitacaoEnum;
 import br.com.app.strategy.annotation.StrategySolicitacao;
 
 @Stateless
-@StrategySolicitacao(tipo = TipoSolicitacaoEnum.CADASTRO_PESSOA_JURIDICA)
-public class SolicitacaoCadastroPessoaJuridica implements SolicitacaoStrategy {
+@StrategySolicitacao(tipo = TipoSolicitacaoEnum.ALTERAR_PROPRIETARIO)
+public class SolicitacaoAlterarProprietario implements SolicitacaoStrategy {
 
 	@Override
 	public Solicitacao criar(Solicitacao solicitacao) {
