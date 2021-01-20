@@ -3,6 +3,7 @@ package br.com.app.persistence;
 import java.util.Objects;
 
 import javax.ejb.Stateless;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import br.com.app.model.Proprietario;
@@ -25,9 +26,15 @@ public class ProprietarioPersistence extends PersistenceBase<Proprietario, Long>
 		
 		query.setParameter("pCpf", cpf);
 		
-		return query.getSingleResult();
+		try {
 
-
+			return query.getSingleResult();
+			
+		} catch (NoResultException e) {
+			
+			return null;
+		}
 		
+	
 	}
 }

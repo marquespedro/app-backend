@@ -19,8 +19,8 @@ public class ImovelService {
 	private ProprietarioService proprietarioService;
 
 	public Imovel salvar(Imovel imovel) {
-
-		enderecoService.salvar(imovel.getEndereco());
+	
+		imovel.setEndereco(enderecoService.salvar(imovel.getEndereco()));
 
 		imovel.setProprietario(proprietarioService.salvar(imovel.getProprietario()));
 

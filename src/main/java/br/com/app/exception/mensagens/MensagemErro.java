@@ -1,4 +1,4 @@
-package br.com.app.exception;
+package br.com.app.exception.mensagens;
 
 public class MensagemErro extends Mensagem {
 

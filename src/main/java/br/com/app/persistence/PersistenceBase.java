@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import br.com.app.exception.AppException;
-import br.com.app.exception.MensagemErro;
+import br.com.app.exception.mensagens.MensagemErro;
 import br.com.app.model.EntidadeBase;
 
 public abstract class PersistenceBase<T extends EntidadeBase<K>, K extends Serializable> {

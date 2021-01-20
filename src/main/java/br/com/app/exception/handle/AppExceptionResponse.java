@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import br.com.app.exception.AppException;
-import br.com.app.exception.Mensagem;
+import br.com.app.exception.mensagens.Mensagem;
 
 
 

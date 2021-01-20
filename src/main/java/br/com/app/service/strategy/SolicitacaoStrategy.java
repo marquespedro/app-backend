@@ -4,5 +4,5 @@ import br.com.app.model.Solicitacao;
 
 public interface SolicitacaoStrategy {
 
-	Solicitacao criar(Solicitacao solicitacao);
+	Solicitacao criarStrategy(Solicitacao solicitacao);
 }

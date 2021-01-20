@@ -11,7 +11,7 @@ import br.com.app.strategy.annotation.StrategySolicitacao;
 
 @Stateless
 @StrategySolicitacao(tipo = TipoSolicitacaoEnum.CADASTRO_IMOVEL)
-public class SolicitacaoCadastroImovel implements SolicitacaoStrategy{
+public class SolicitacaoCadastroImovel extends SolicitacaoBase implements SolicitacaoStrategy{
 
 	@Inject
 	private SolicitacaoPersistence persistence;
@@ -20,7 +20,9 @@ public class SolicitacaoCadastroImovel implements SolicitacaoStrategy{
 	private ImovelService imovelService;
 
 	@Override
-	public Solicitacao criar(Solicitacao solicitacao) {
+	public Solicitacao criarStrategy(Solicitacao solicitacao) {
+		
+		criar(solicitacao);
 		
 		imovelService.salvar(solicitacao.getImovel());
 				

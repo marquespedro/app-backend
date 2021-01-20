@@ -1,22 +1,35 @@
 package br.com.app.model;
 
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
 import javax.persistence.Column;
-import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import br.com.app.model.enumerator.SituacaoProcessoEnum;
 import br.com.app.model.enumerator.TipoSolicitacaoEnum;
-import br.com.app.model.enumerator.TipoSolicitacaoEnumConverter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "solicitacao")
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+@Data
 public class Solicitacao extends EntidadeBase<Long> {
 
 	/**
@@ -30,42 +43,34 @@ public class Solicitacao extends EntidadeBase<Long> {
 	private Long id;
 
 	@Column(name = "tipoSolicitacao")
-	@Convert(converter = TipoSolicitacaoEnumConverter.class)
 	private TipoSolicitacaoEnum tipo;
 
 	@JoinColumn(name = "id_imovel")
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Imovel imovel;
-
-	public TipoSolicitacaoEnum getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(TipoSolicitacaoEnum tipo) {
-		this.tipo = tipo;
-	}
-
-	@Override
-	public String toString() {
-		return "Solicitacao [tipo=" + tipo + "]";
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Imovel getImovel() {
-		return imovel;
-	}
-
-	public void setImovel(Imovel imovel) {
-		this.imovel = imovel;
-	}
 	
-	
+	@JoinColumn(name = "id_proprietario")
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Proprietario proprietario;
 
+	@Column(name = "situacao_atual")
+	private SituacaoProcessoEnum situacaoAtual;
+	
+	@JoinTable(name = "solicitacao_processos")
+	@OneToMany
+	private Set<Processo> processos;
+	
+	public void adicionarProcesso(Processo processo) {
+	
+		if(Objects.isNull(processo)) {
+			return ;
+		}
+		
+		if(this.processos == null || this.processos.isEmpty()) {
+			this.processos = new HashSet<Processo>();			
+		}
+		
+		this.situacaoAtual = processo.getSituacao();
+		this.processos.add(processo);
+	}
 }

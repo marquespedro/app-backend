@@ -11,8 +11,17 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "imovel")
+@Data
+@EqualsAndHashCode(callSuper = false, exclude = {"id"})
+@AllArgsConstructor
+@NoArgsConstructor
 public class Imovel extends EntidadeBase<Long> {
 
 	/**
@@ -33,21 +42,7 @@ public class Imovel extends EntidadeBase<Long> {
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Proprietario proprietario;
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public Proprietario getProprietario() {
-		return proprietario;
-	}
-
-	public void setProprietario(Proprietario proprietario) {
-		this.proprietario = proprietario;
-	}
 	
 	
 	

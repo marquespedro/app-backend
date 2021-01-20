@@ -11,7 +11,7 @@ import br.com.app.strategy.annotation.StrategySolicitacao;
 public class SolicitacaoAlterarProprietario implements SolicitacaoStrategy {
 
 	@Override
-	public Solicitacao criar(Solicitacao solicitacao) {
+	public Solicitacao criarStrategy(Solicitacao solicitacao) {
 
 		return solicitacao;
 	}

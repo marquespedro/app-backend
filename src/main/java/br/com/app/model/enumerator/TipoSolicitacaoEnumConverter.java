@@ -1,9 +1,9 @@
 package br.com.app.model.enumerator;
 
 import javax.persistence.AttributeConverter;
-import javax.persistence.Convert;
+import javax.persistence.Converter;
 
-@Convert
+@Converter(autoApply = true)
 public class TipoSolicitacaoEnumConverter implements AttributeConverter<Integer, TipoSolicitacaoEnum> {
 
 	@Override

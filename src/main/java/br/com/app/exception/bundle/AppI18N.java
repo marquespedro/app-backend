@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 import javax.ejb.Singleton;
 
 import br.com.app.exception.AppException;
-import br.com.app.exception.Mensagem;
+import br.com.app.exception.mensagens.Mensagem;
 
 
 

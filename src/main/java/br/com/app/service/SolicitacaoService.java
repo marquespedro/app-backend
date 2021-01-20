@@ -17,7 +17,7 @@ public class SolicitacaoService {
 			
 		SolicitacaoStrategy strategy = strategyFactory.getStrategy(solicitacao.getTipo().getCodigo());
 		
-		return strategy.criar(solicitacao);
+		return strategy.criarStrategy(solicitacao);
 	}
 
 

@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.ejb.ApplicationException;
 
+import br.com.app.exception.mensagens.Mensagem;
+
 
 
 @ApplicationException(rollback = true)
