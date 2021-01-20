@@ -5,11 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+
+
 
 @Entity
 @Table(name = "proprietario")
+@NamedQuery(name="Proprietario.findByCpf", query="SELECT p FROM Proprietario p where p.cpf =:pCpf")
 public class Proprietario extends EntidadeBase<Long> {
 
 	/**
@@ -23,9 +29,11 @@ public class Proprietario extends EntidadeBase<Long> {
 	private Long id;
 	
 	@Column(name = "nome")
+	@NotBlank
 	private String nome;
 	
 	@Column(name = "cpf")
+	@NotBlank
 	private String cpf;
 
 	public String getNome() {

@@ -34,4 +34,8 @@ public abstract class PersistenceBase<T extends EntidadeBase<K>, K extends Seria
 		
 		return entitiy;
 	}
+	
+	public EntityManager getEntityManager() {
+		return this.manager;
+	}
 }

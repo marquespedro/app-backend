@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "endereco")
@@ -22,13 +23,16 @@ public class Endereco extends EntidadeBase<Long>{
 	@SequenceGenerator(name = "endereco_seq" , sequenceName = "endereco_seq")
 	private Long id;
 	
-	@Column(name = "")
+	@Column(name = "cep")
+	@NotBlank(message = "cep nao pode ser vazio")
 	private String cep;
 
 	@Column(name = "bairro")
+	@NotBlank(message = "bairro nao pode ser vazio")
 	private String bairro;
 
 	@Column(name = "numero")
+	@NotBlank(message = "numero nao pode ser vazio")
 	private String numero;
 
 	@Column(name = "complemento")

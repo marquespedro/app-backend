@@ -14,7 +14,11 @@ public enum TipoSolicitacaoEnum {
 	}
 
 	public Integer getCodigo() {
-		return codigo;
+		return this.codigo;
+	}
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 
 	public static TipoSolicitacaoEnum comoEnum(Integer codigo) {

@@ -1,6 +1,7 @@
 package br.com.app.model;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import br.com.app.model.enumerator.TipoSolicitacaoEnum;
+import br.com.app.model.enumerator.TipoSolicitacaoEnumConverter;
 
 @Entity
 @Table(name = "solicitacao")
@@ -23,11 +25,12 @@ public class Solicitacao extends EntidadeBase<Long> {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "solicitacao_seq")
 	@SequenceGenerator(name = "solicitacao_seq" , sequenceName = "solicitacao_seq")
 	private Long id;
 
 	@Column(name = "tipoSolicitacao")
+	@Convert(converter = TipoSolicitacaoEnumConverter.class)
 	private TipoSolicitacaoEnum tipo;
 
 	@JoinColumn(name = "id_imovel")

@@ -21,7 +21,7 @@ public class Imovel extends EntidadeBase<Long> {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE , generator = "imovel_seq")
 	@SequenceGenerator(name = "imovel_seq" , sequenceName = "imovel_seq")
 	private Long id;
 	
