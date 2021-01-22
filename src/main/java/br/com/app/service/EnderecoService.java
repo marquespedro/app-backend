@@ -13,22 +13,29 @@ import br.com.app.model.Endereco;
 import br.com.app.persistence.EnderecoPersistence;
 
 @Stateless
-public class EnderecoService {
+public class EnderecoService extends ServiceBase<Endereco, Long> {
 
 	@Inject
 	private EnderecoPersistence persistence;
 
 	public Endereco salvar(Endereco endereco) {
 
-		validar(endereco);
-
 		Endereco enderecoEncontrado = obterEnderecoPorCep(endereco.getCep());
 
 		if (Objects.nonNull(enderecoEncontrado)) {
-			return enderecoEncontrado;	
+			return enderecoEncontrado;
 		}
-		
+
 		return persistence.salvar(endereco);
+	}
+
+	public Endereco atualizar(Endereco endereco) {
+
+		Endereco enderecoValido = validar(endereco);
+		
+		copiarPropriedades(enderecoValido, endereco);
+		
+		return persistence.salvar(enderecoValido);
 	}
 
 	public Endereco obterEnderecoPorCep(String cep) {
@@ -36,18 +43,21 @@ public class EnderecoService {
 		if (StringUtils.isEmpty(cep)) {
 			return null;
 		}
-		
+
 		return persistence.obterPorCep(cep);
 
 	}
 
-	private void validar(Endereco endereco) {
+	public Endereco validar(Endereco endereco) {
 
-		if (StringUtils.isEmpty(endereco.getCep()) || StringUtils.isEmpty(endereco.getBairro())
-				|| StringUtils.isEmpty(endereco.getNumero())) {
-			throw new AppException(new MensagemErro("campos.obrigatorios.nao.preenchidos", "cep, bairro, numero"));
+		Endereco encontrado = persistence.find(Endereco.class, endereco.getId());
+
+		if (Objects.isNull(encontrado)) {
+			throw new AppException(new MensagemErro("registro.nao.encontrado", endereco.getId().toString()));
 		}
 
+		return encontrado;
 	}
 
+	
 }

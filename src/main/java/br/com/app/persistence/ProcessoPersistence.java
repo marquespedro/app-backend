@@ -15,7 +15,7 @@ public class ProcessoPersistence extends PersistenceBase<Processo, Long> {
 			return null;
 		}
 
-		return persist(processo);
+		return persistir(processo);
 	}
 
 }

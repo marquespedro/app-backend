@@ -12,10 +12,10 @@ import javax.inject.Inject;
 import br.com.app.exception.AppException;
 import br.com.app.exception.mensagens.MensagemErro;
 import br.com.app.model.enumerator.TipoSolicitacaoEnum;
-import br.com.app.service.strategy.SolicitacaoStrategy;
+import br.com.app.service.solicitacao.SolicitacaoStrategy;
 
 @Dependent
-public class SolicitacaoStrategyFactory {
+public class SolicitacaoFactory {
 	
 	@Inject
 	@Any
@@ -24,7 +24,7 @@ public class SolicitacaoStrategyFactory {
 	
 	private Map<Integer, TipoSolicitacaoEnum> strategies;
 
-	public SolicitacaoStrategyFactory() {
+	public SolicitacaoFactory() {
 		
 		this.strategies = new HashMap<>();
 		
@@ -42,11 +42,11 @@ public class SolicitacaoStrategyFactory {
 			throw new AppException(new MensagemErro("tipo.solicitacao.invalido", codigo.toString()));
 		}
 			
-		SolicitacaoStrategyLiteral literal = new SolicitacaoStrategyLiteral(tipo);
+		SolicitacaoAnnotationLiteral literal = new SolicitacaoAnnotationLiteral(tipo);
 		
-		Instance<SolicitacaoStrategy> algoritmoInstace = this.solicitacaoStrategy.select(literal);
+		Instance<SolicitacaoStrategy> strategyInstance = this.solicitacaoStrategy.select(literal);
 	
-		return algoritmoInstace.get();
+		return strategyInstance.get();
 	}
 
 }

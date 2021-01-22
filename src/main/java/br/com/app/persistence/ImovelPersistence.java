@@ -16,6 +16,6 @@ public class ImovelPersistence extends PersistenceBase<Imovel, Long> {
 			return null;
 		}
 		
-		return persist(imovel);
+		return persistir(imovel);
 	} 
 }

@@ -16,7 +16,7 @@ import br.com.app.model.enumerator.TipoSolicitacaoEnum;
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ TYPE, FIELD, PARAMETER, CONSTRUCTOR })
-public  @interface StrategySolicitacao {
+public  @interface TipoSolicitacao {
 
 	TipoSolicitacaoEnum tipo();
 }

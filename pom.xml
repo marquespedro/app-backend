@@ -28,7 +28,8 @@
 		<!-- JBoss dependency versions -->
 		<version.wildfly.maven.plugin>2.0.2.Final</version.wildfly.maven.plugin>
 
-		<!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
+		<!-- Define the version of the JBoss BOMs we want to import to specify 
+			tested stacks. -->
 		<version.jboss.bom>21.0.0.Final</version.jboss.bom>
 
 		<version.compiler.plugin>3.8.1</version.compiler.plugin>
@@ -115,6 +116,12 @@
 
 	<dependencies>
 
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.4</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -286,7 +293,8 @@
 		</profile>
 
 		<profile>
-			<!-- An optional Arquillian testing profile that executes tests in a remote JBoss EAP instance. Run with: mvn clean verify -Parq-remote -->
+			<!-- An optional Arquillian testing profile that executes tests in a remote 
+				JBoss EAP instance. Run with: mvn clean verify -Parq-remote -->
 			<id>arq-remote</id>
 			<dependencies>
 				<dependency>

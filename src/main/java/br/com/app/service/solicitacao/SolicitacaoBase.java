@@ -1,4 +1,4 @@
-package br.com.app.service.strategy;
+package br.com.app.service.solicitacao;
 
 import javax.inject.Inject;
 

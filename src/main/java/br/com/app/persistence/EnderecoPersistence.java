@@ -17,7 +17,7 @@ public class EnderecoPersistence extends PersistenceBase<Endereco, Long> {
 			return null;
 		}
 
-		return persist(endereco);
+		return persistir(endereco);
 	}
 
 	public Endereco obterPorCep(String cep) {

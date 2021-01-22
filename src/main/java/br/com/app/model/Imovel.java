@@ -1,5 +1,7 @@
 package br.com.app.model;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -43,7 +45,14 @@ public class Imovel extends EntidadeBase<Long> {
 	private Proprietario proprietario;
 
 
-	
+	public void adicionarProprietario(Proprietario proprietario) {
+		
+		if(Objects.isNull(proprietario)) {
+			return;
+		}
+		
+		this.proprietario = proprietario;
+	}
 	
 	
 }

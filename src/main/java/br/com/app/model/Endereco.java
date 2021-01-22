@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "endereco")
@@ -22,6 +23,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false, exclude = {"id"})
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Endereco extends EntidadeBase<Long>{
 
 	/**

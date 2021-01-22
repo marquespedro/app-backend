@@ -14,7 +14,7 @@ public enum TipoSolicitacaoEnum {
 	}
 
 	public Integer getCodigo() {
-		return this.codigo;
+		return codigo;
 	}
 
 	public void setCodigo(Integer codigo) {

@@ -17,7 +17,7 @@ public class ProprietarioPersistence extends PersistenceBase<Proprietario, Long>
 			return null;
 		}
 
-		return persist(proprietario);
+		return persistir(proprietario);
 	}
 
 	public Proprietario obterPorCpf(String cpf) {

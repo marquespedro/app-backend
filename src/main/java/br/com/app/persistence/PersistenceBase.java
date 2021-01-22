@@ -24,7 +24,7 @@ public abstract class PersistenceBase<T extends EntidadeBase<K>, K extends Seria
 		return manager.find(tipo, id);
 	}
 	
-	public T persist(T entitiy) {
+	public T persistir(T entitiy) {
 
 		if (Objects.isNull(entitiy)) {
 			throw new AppException(new MensagemErro("falha.ao.gravar.dado"));

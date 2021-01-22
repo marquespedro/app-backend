@@ -16,10 +16,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import br.com.app.model.enumerator.SituacaoProcessoEnum;
 import br.com.app.model.enumerator.TipoSolicitacaoEnum;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -30,6 +32,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Data
+@Builder
 public class Solicitacao extends EntidadeBase<Long> {
 
 	/**
@@ -43,6 +46,7 @@ public class Solicitacao extends EntidadeBase<Long> {
 	private Long id;
 
 	@Column(name = "tipoSolicitacao")
+	@NotNull
 	private TipoSolicitacaoEnum tipo;
 
 	@JoinColumn(name = "id_imovel")
