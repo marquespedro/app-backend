@@ -32,9 +32,7 @@ public class EnderecoService extends ServiceBase<Endereco, Long> {
 	public Endereco atualizar(Endereco endereco) {
 
 		Endereco enderecoValido = validar(endereco);
-		
-		copiarPropriedades(enderecoValido, endereco);
-		
+				
 		return persistence.salvar(enderecoValido);
 	}
 

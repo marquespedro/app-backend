@@ -18,10 +18,12 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<packaging>war</packaging>
-	<name>app</name>
-	<description>solicitacao api , somente fins didaticos</description>
+	<name>fakebank-backend</name>
+	<description>fakebank-backend</description>
 
 	<properties>
+
+		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -37,9 +39,9 @@
 		<version.failsafe.plugin>2.22.2</version.failsafe.plugin>
 		<version.war.plugin>3.3.1</version.war.plugin>
 
-
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
+		<org.projectlombok.version>1.18.8</org.projectlombok.version>
 	</properties>
 
 	<repositories>
@@ -121,7 +123,7 @@
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.9.4</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -137,11 +139,15 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.8</version>
+			<version>${org.projectlombok.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
-
+		<!-- MapScruct  -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${org.mapstruct.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>jakarta.enterprise</groupId>
@@ -154,7 +160,6 @@
 			<artifactId>hibernate-validator</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
 
 		<dependency>
 			<groupId>jakarta.persistence</groupId>
@@ -221,7 +226,20 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${version.compiler.plugin}</version>
 				<configuration>
-					<!-- put your configurations here -->
+					<source>1.8</source>
+					<target>1.8</target>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${org.mapstruct.version}</version>
+						</path>		
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${org.projectlombok.version}</version>
+						</path>		
+					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 

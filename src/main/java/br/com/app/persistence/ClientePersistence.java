@@ -4,13 +4,13 @@ import java.util.Objects;
 
 import javax.ejb.Stateless;
 
-import br.com.app.model.Imovel;
+import br.com.app.model.Cliente;
 
 @Stateless
-public class ImovelPersistence extends PersistenceBase<Imovel, Long> {
+public class ClientePersistence extends PersistenceBase<Cliente, Long> {
 
 	
-	public Imovel salvar(Imovel imovel) {
+	public Cliente salvar(Cliente imovel) {
 	
 		if(Objects.isNull(imovel)) {
 			return null;

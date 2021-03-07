@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import br.com.app.model.Solicitacao;
 import br.com.app.model.enumerator.TipoSolicitacaoEnum;
 import br.com.app.persistence.SolicitacaoPersistence;
-import br.com.app.service.ImovelService;
+import br.com.app.service.ClienteService;
 import br.com.app.strategy.annotation.TipoSolicitacao;
 
 @Stateless
@@ -17,14 +17,14 @@ public class SolicitacaoCadastroImovel extends SolicitacaoBase implements Solici
 	private SolicitacaoPersistence persistence;
 	
 	@Inject
-	private ImovelService imovelService;
+	private ClienteService imovelService;
 
 	@Override
 	public Solicitacao criarStrategy(Solicitacao solicitacao) {
 		
 		criar(solicitacao);
 		
-		imovelService.salvar(solicitacao.getImovel());
+//		imovelService.salvar(solicitacao.getImovel());
 					
 		return persistence.salvar(solicitacao);
 	}

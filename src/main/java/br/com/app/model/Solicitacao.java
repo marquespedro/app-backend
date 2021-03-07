@@ -51,11 +51,11 @@ public class Solicitacao extends EntidadeBase<Long> {
 
 	@JoinColumn(name = "id_imovel")
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Imovel imovel;
+	private Cliente imovel;
 	
 	@JoinColumn(name = "id_proprietario")
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Proprietario proprietario;
+	private Conta proprietario;
 
 	@Column(name = "situacao_atual")
 	private SituacaoProcessoEnum situacaoAtual;
@@ -76,5 +76,10 @@ public class Solicitacao extends EntidadeBase<Long> {
 		
 		this.situacaoAtual = processo.getSituacao();
 		this.processos.add(processo);
+	}
+	
+	@Override
+	public Long getId() {
+		return id;
 	}
 }

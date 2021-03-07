@@ -13,6 +13,6 @@ public abstract class EntidadeBase <K extends Serializable> implements Serializa
 	private static final long serialVersionUID = 1L;
 
 	
-	public abstract Long getId();
+	public abstract K getId();
 	
 }

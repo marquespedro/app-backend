@@ -8,7 +8,7 @@ import br.com.app.exception.mensagens.MensagemErro;
 import br.com.app.model.Solicitacao;
 import br.com.app.model.enumerator.SituacaoProcessoEnum;
 import br.com.app.model.enumerator.TipoSolicitacaoEnum;
-import br.com.app.service.ImovelService;
+import br.com.app.service.ClienteService;
 import br.com.app.service.SolicitacaoService;
 import br.com.app.strategy.annotation.TipoSolicitacao;
 
@@ -18,7 +18,7 @@ public class SolicitacaoAlterarProprietario extends SolicitacaoBase implements S
 
 	
 	@Inject
-	private ImovelService imovelService;
+	private ClienteService imovelService;
 	
 	@Inject
 	private SolicitacaoService solicitacaoService;
@@ -37,7 +37,7 @@ public class SolicitacaoAlterarProprietario extends SolicitacaoBase implements S
 																				 SituacaoProcessoEnum.EM_ANDAMENTO.getDescricao()));
 		}
 		
-		imovelService.atribuirProprietario(solicitacao.getImovel() , idProprietario);
+//		imovelService.atribuirProprietario(solicitacao.getImovel() , idProprietario);
 				
 		return solicitacaoService.persistir(solicitacao);
 	}

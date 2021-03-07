@@ -29,9 +29,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Processo extends EntidadeBase<Long> {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -51,6 +49,9 @@ public class Processo extends EntidadeBase<Long> {
 	@Column(name = "descricao")
 	private String descricao;
 
-	
+	@Override
+	public Long getId() {
+		return id;
+	}
 	
 }

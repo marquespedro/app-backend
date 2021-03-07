@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -24,11 +25,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class Endereco extends EntidadeBase<Long>{
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -51,5 +51,8 @@ public class Endereco extends EntidadeBase<Long>{
 	@Column(name = "complemento")
 	private String complemento;
 
-		
+	@Override
+	public Long getId() {
+		return id;
+	}
 }
