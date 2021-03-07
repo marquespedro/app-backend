@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  teste-postgres-compose:
+  db-postgres:
     image: postgres:11
     environment:
       POSTGRES_PASSWORD: "postgres"
@@ -12,7 +12,7 @@ services:
     networks:
       - postgres-compose-network
 
-  teste-pgadmin-compose:
+  pgadmin:
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: "admin@gmail.com"
