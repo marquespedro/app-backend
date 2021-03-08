@@ -7,21 +7,25 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.com.app.dto.ClienteDTO;
+import br.com.app.model.Cliente;
 import br.com.app.service.ClienteService;
-import br.com.app.vo.ClienteVO;
 
 @Consumes(value = MediaType.APPLICATION_JSON)
 @Produces(value = MediaType.APPLICATION_JSON)
-@Path(value = "/solicitacao")
+@Path(value = "/cliente")
 public class ClienteResource {
-	
+	 
 	@Inject
 	private ClienteService service;
+
 	
 	@POST
-	public ClienteVO salvar(ClienteVO cliente) {
-		
-		return null;
+	public ClienteDTO salvar(ClienteDTO clienteDTO) {
+				
+		Cliente cliente = service.converter(clienteDTO, Cliente.class);
+				
+		return service.converter(cliente, ClienteDTO.class);
 	}
 	
 }

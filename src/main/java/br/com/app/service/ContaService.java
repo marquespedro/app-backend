@@ -6,13 +6,14 @@ import java.util.Objects;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import br.com.app.dto.ContaDTO;
 import br.com.app.exception.AppException;
 import br.com.app.exception.mensagens.MensagemErro;
 import br.com.app.model.Conta;
 import br.com.app.persistence.ContaPersistence;
 
 @Stateless
-public class ContaService extends ServiceBase<Conta, Long> {
+public class ContaService extends ServiceBase<Conta, Long , ContaDTO> {
 
 	@Inject
 	private ContaPersistence persistence;

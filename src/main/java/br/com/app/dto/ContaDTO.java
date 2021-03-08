@@ -1,26 +1,30 @@
-package br.com.app.vo;
+package br.com.app.dto;
 
-import java.util.Collection;
-
+import br.com.app.model.enumerator.TipoConta;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @Builder
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClienteVO extends BaseVO {
+public class ContaDTO extends BaseDTO {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	
-	private Collection<ContaVO> contas;
 
-	private PessoaFisicaVO pessoaFisica;
-	
-	private PessoaJuridicaVO pessoaJuridica;
+	private String agencia;
 
+	private String numero;
+
+	private TipoConta tipo;
 }

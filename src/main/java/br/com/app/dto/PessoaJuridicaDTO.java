@@ -1,4 +1,4 @@
-package br.com.app.vo;
+package br.com.app.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,10 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class PessoaFisicaVO extends PessoaVO {
+public class PessoaJuridicaDTO extends BaseDTO{
 
-	private String nome;	
-	private String cpf;
+
+	private static final long serialVersionUID = 1L;
 	
+	private Long id;
+	private String cnpj;
+	private EnderecoDTO endereco;
 	
 }
