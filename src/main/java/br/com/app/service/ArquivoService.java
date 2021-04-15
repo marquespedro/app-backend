@@ -2,8 +2,12 @@ package br.com.app.service;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.BinaryOperator;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import javax.ejb.Stateless;
 import javax.ws.rs.core.MultivaluedMap;
@@ -65,5 +69,24 @@ public class ArquivoService {
 			}
 		}
 		return "unknown";
+	}
+
+	public Integer operacaoDemorada(Integer numero) {
+		
+		List<Integer> numeros = new ArrayList<>();
+		
+		for(int i = 1; i <= numero ; i++) {
+			numeros.add(i);	
+		}
+		
+		Predicate<Integer> somentePares = n -> n % 2 == 0 ;	
+		
+		List<Integer> numerosPares = numeros.stream().filter(somentePares).collect(Collectors.toList());
+		
+		BinaryOperator<Integer> somador = (acc, element) -> acc + element;
+		
+		Integer resultado =  numerosPares.stream().reduce(somador).orElse(null);
+		
+		return resultado;
 	}
 }
