@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.commons.lang3.StringUtils;
 
 import br.com.app.dto.EnderecoDTO;
+import br.com.app.dto.PaginacaoDTO;
 import br.com.app.exception.AppException;
 import br.com.app.exception.mensagens.MensagemErro;
 import br.com.app.model.Endereco;
@@ -56,6 +57,11 @@ public class EnderecoService extends ServiceBase<Endereco, Long , EnderecoDTO> {
 		}
 
 		return encontrado;
+	}
+
+	public PaginacaoDTO<EnderecoDTO> consultarPaginado(PaginacaoDTO<EnderecoDTO> dto) {
+
+		return persistence.consultarPaginado(dto);
 	}
 
 	
